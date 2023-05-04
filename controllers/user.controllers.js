@@ -232,6 +232,16 @@ const profile = async (req, res) => {
   };
 };
 
+const logout = async (req, res) => {
+  try {
+    res.clearCookie('tkn');
+    return res.json({ msg: 'Logged out successfully' });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ msg: 'Failed to logging out' });
+  }
+};
+
 export {
   registerUser,
   confirmed,
@@ -240,5 +250,6 @@ export {
   newPassword,
   login,
   rememberMe,
-  profile
+  profile,
+  logout
 };
