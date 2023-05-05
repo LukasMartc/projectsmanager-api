@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../database/database.js";
-import User from "./User.js";
+import Task from "./Task.js";
 
 export const Project = sequelize.define('Project', {
   id: {
@@ -37,7 +37,7 @@ export const Project = sequelize.define('Project', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: User,
+      model: 'Users',
       key: 'id'
     }
   },
@@ -50,9 +50,8 @@ export const Project = sequelize.define('Project', {
   timestamps: true
 });
 
-Project.belongsTo(User, {
-  as: 'creator',
-  foreignKey: 'creatorId'
+Task.belongsTo(Project, {
+  foreignKey: 'projectId'
 });
 
 export default Project;

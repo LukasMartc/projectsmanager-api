@@ -1,6 +1,8 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../database/database.js";
 import bcrypt from "bcrypt";
+import Project from "./Project.js";
+import Task from "./Task.js";
 const User = sequelize.define('User', {
   id: {
     type: DataTypes.INTEGER,
@@ -51,5 +53,15 @@ User.beforeCreate(async (user, options) => {
 User.prototype.checkPassword = async function(password) {
   return await bcrypt.compare(password, this.password);
 }
+
+Project.belongsTo(User, {
+  as: 'creator',
+  foreignKey: 'creatorId'
+});
+
+Task.belongsTo(User, { 
+  as: 'finishedBy',
+  foreignKey: 'completedBy' 
+});
 
 export default User;
