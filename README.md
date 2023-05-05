@@ -6,7 +6,7 @@ Projects Manager is an api that has an authentication system, in which it has re
 
 ### Content
 
-This project has only **master** branch. This project requires various configurations such as Mailtrap account and credentials to connect to postgresql database and JWT secret key. If you need help with this, you can email me at lukas@gmail.com asking for help.
+This project has only **master** branch. This project requires various configurations such as Mailtrap account and credentials to connect to postgresql database and JWT secret key. If you need help with this, you can email me at lukasmartinezc@gmail.com asking for help.
 
 ### Endpoints
 
